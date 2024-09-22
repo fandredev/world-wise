@@ -1,3 +1,10 @@
+import NavigationApp from '../components/NavigationApp';
+
 export default function AppLayout() {
-  return <div>AppLayout</div>;
+  return (
+    <div>
+      <NavigationApp />
+      <p>App</p>
+    </div>
+  );
 }

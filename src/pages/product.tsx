@@ -1,4 +1,4 @@
-import NavigationPage from '../components/navigation-page';
+import NavigationPage from '../components/NavigationPage';
 
 export default function Product() {
   return (
