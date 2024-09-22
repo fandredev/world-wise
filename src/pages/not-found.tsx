@@ -1,11 +1,11 @@
 import NavigationPage from '../components/navigation-page';
 
-export default function Product() {
+export default function NotFound() {
   return (
     <div>
       {' '}
       <NavigationPage />
-      Product
+      NotFound
     </div>
   );
 }
