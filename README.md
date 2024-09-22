@@ -15,6 +15,7 @@
 - [Eslint](https://prettier.io/)
 - [asdf](https://asdf-vm.com/)
 - [React Router](https://reactrouter.com/en/main)
+- [CSS modules](https://github.com/css-modules/css-modules)
 
 ## Clone this repo
 
