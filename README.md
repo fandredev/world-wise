@@ -14,6 +14,7 @@
 - [Prettier](https://eslint.org/)
 - [Eslint](https://prettier.io/)
 - [asdf](https://asdf-vm.com/)
+- [React Router](https://reactrouter.com/en/main)
 
 ## Clone this repo
 
@@ -29,16 +30,19 @@ git clone git@github.com:fandredev/world-wise.git
  cd world-wise
 ```
 
-## Install dependencies
+## Install dependencies 
+
+###### Notes: I use the pnpm for this project. if you use the npm, replace the 'pnpm' to 'npm'.
+
 
 ```
- yarn
+ pnpm install
 ```
 
 ## Run server
 
 ```
- yarn run dev
+ pnpm run dev
 ```
 
 <!-- ## Run tests
@@ -56,7 +60,7 @@ git clone git@github.com:fandredev/world-wise.git
 ## Run linter
 
 ```
- yarn run lint
+ pnpm run lint
 ```
 
 ## :mailbox_with_no_mail: Contatos
