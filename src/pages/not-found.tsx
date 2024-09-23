@@ -1,11 +1,7 @@
-import NavigationPage from '../components/NavigationPage';
-
-export default function NotFound() {
+export default function PageNotFound() {
   return (
     <div>
-      {' '}
-      <NavigationPage />
-      NotFound
+      <h1>Page not found 😢</h1>
     </div>
   );
 }
