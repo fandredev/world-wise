@@ -1,9 +1,11 @@
 // use the same styles as product
+import NavigationPage from '../components/NavigationPage';
 import styles from './styles/product.module.css';
 
 export default function Product() {
   return (
     <main className={styles.product}>
+      <NavigationPage />
       <section>
         <div>
           <h2>

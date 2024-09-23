@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import styles from './styles/login.module.css';
+import NavigationPage from '../components/NavigationPage';
 
 const FAKE_EMAIL = 'jack@example.com';
 const FAKE_PASSWORD = 'qwerty';
@@ -11,6 +12,7 @@ export default function Login() {
 
   return (
     <main className={styles.login}>
+      <NavigationPage />
       <form className={styles.form}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>

@@ -1,8 +1,10 @@
+import NavigationPage from '../components/NavigationPage';
 import styles from './styles/product.module.css';
 
 export default function Product() {
   return (
     <main className={styles.product}>
+      <NavigationPage />
       <section>
         <img
           src="img-1.jpg"
