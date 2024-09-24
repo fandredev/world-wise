@@ -1,13 +1,14 @@
 import styles from './country-item.module.css';
 
+export type Country = {
+  country: string;
+  emoji: string;
+};
 interface CountryProps {
-  country: {
-    emoji: string;
-    country: string;
-  };
+  country: Country;
 }
 
-function CountryItem({ country }: CountryProps) {
+export default function CountryItem({ country }: CountryProps) {
   return (
     <li className={styles.countryItem}>
       <span>{country.emoji}</span>
@@ -15,5 +16,3 @@ function CountryItem({ country }: CountryProps) {
     </li>
   );
 }
-
-export default CountryItem;
