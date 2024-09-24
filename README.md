@@ -16,6 +16,8 @@
 - [asdf](https://asdf-vm.com/)
 - [React Router](https://reactrouter.com/en/main)
 - [CSS modules](https://github.com/css-modules/css-modules)
+- [JSON Server](https://www.npmjs.com/package/json-server)
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 
 ## Clone this repo
 
@@ -62,6 +64,11 @@ git clone git@github.com:fandredev/world-wise.git
 
 ```
  pnpm run lint
+```
+## Run JSON Server
+
+```
+ pnpm run server
 ```
 
 ## :mailbox_with_no_mail: Contatos
