@@ -3,7 +3,7 @@ import Spinner from '../Spinner';
 import styles from './city-list.module.css';
 import CityItem from './item';
 
-export interface City {
+export interface ICity {
   cityName: string;
   country: string;
   emoji: string;
@@ -16,8 +16,8 @@ export interface City {
   id: number;
 }
 
-interface CityListProps {
-  cities: City[];
+export interface CityListProps {
+  cities: ICity[];
   isLoadingCities: boolean;
 }
 
