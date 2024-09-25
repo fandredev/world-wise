@@ -4,7 +4,7 @@ import styles from './button.module.css';
 interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
   onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  color?: 'primary' | 'back';
+  color?: 'primary' | 'back' | 'position';
 }
 
 export default function Button({
