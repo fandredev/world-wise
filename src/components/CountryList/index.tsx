@@ -1,15 +1,13 @@
-import { ICity, CityListProps } from '../City/city-list';
+import { useCities } from '../../hooks/use-cities';
+import { ICity } from '../City/city-list';
 import CountryItem, { Country } from '../CountryItem';
 import Message from '../Message';
 import Spinner from '../Spinner';
 import styles from './country-list.module.css';
 
-type CountriesListProps = CityListProps;
+export default function CountryList() {
+  const { cities, isLoadingCities } = useCities();
 
-export default function CountryList({
-  cities,
-  isLoadingCities,
-}: CountriesListProps) {
   if (isLoadingCities) {
     return <Spinner />;
   }

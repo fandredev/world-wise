@@ -1,3 +1,4 @@
+import { useCities } from '../../hooks/use-cities';
 import Message from '../Message';
 import Spinner from '../Spinner';
 import styles from './city-list.module.css';
@@ -16,12 +17,9 @@ export interface ICity {
   id: number;
 }
 
-export interface CityListProps {
-  cities: ICity[];
-  isLoadingCities: boolean;
-}
+export default function CityList() {
+  const { cities, isLoadingCities } = useCities();
 
-export default function CityList({ cities, isLoadingCities }: CityListProps) {
   if (isLoadingCities) {
     return <Spinner />;
   }
