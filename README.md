@@ -18,6 +18,7 @@
 - [CSS modules](https://github.com/css-modules/css-modules)
 - [JSON Server](https://www.npmjs.com/package/json-server)
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [leaflet](https://leafletjs.com/)
 
 ## Clone this repo
 
