@@ -1,4 +1,4 @@
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import styles from './map.module.css';
 import {
   MapContainer,
@@ -13,6 +13,7 @@ import { LatLngTuple } from 'leaflet';
 import { useCities } from '../../hooks/use-cities';
 import { useGeolocation } from '../../hooks/use-geolocation';
 import Button from '../Button';
+import { useUrlPosition } from '../../hooks/use-url-position';
 
 function Map() {
   const { cities } = useCities();
@@ -21,7 +22,8 @@ function Map() {
     isLoading: isLoadingPosition,
     getPosition,
   } = useGeolocation();
-  const [searchParams, setSearchParams] = useSearchParams();
+
+  const { lat, lng } = useUrlPosition();
 
   const defaultPosition = { lat: 0, lng: 0 };
   const [mapPosition, setMapPosition] = useState<LatLngTuple>([
@@ -29,14 +31,11 @@ function Map() {
     position?.lng ?? defaultPosition.lng,
   ]);
 
-  const mapLatitude = +(searchParams.get('lat') ?? 0);
-  const mapLongitude = +(searchParams.get('lng') ?? 0);
-
   useEffect(() => {
-    if (mapLatitude && mapLongitude) {
-      setMapPosition([mapLatitude, mapLongitude]);
+    if (lat && lng) {
+      setMapPosition([lat, lng]);
     }
-  }, [mapLatitude, mapLongitude]);
+  }, [lat, lng]);
 
   useEffect(() => {
     if (position) {
@@ -53,8 +52,7 @@ function Map() {
       )}
       <MapContainer
         className={styles.map}
-        // center={position}
-        center={[mapLatitude, mapLongitude]}
+        center={[lat, lng]}
         zoom={6}
         scrollWheelZoom
       >
