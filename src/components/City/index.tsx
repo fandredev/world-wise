@@ -1,30 +1,25 @@
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import styles from './city.module.css';
-
-const formatDate = (date: number | string | Date) =>
-  new Intl.DateTimeFormat('en', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    weekday: 'long',
-  }).format(new Date(date));
+import { useEffect } from 'react';
+import Button from '../Button';
+import { useCities } from '../../hooks/use-cities';
+import Spinner from '../Spinner';
 
 export default function City() {
   const { cityId } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
 
-  const latitude = searchParams.get('lat');
-  const longitude = searchParams.get('lng');
-
-  // TEMP DATA
-  const currentCity = {
-    cityName: 'Lisbon',
-    emoji: '🇵🇹',
-    date: '2027-10-31T15:59:59.138Z',
-    notes: 'My favorite city so far!',
-  };
+  const { getCityById, currentCity, isLoadingCities } = useCities();
 
   const { cityName, emoji, date, notes } = currentCity;
+
+  useEffect(() => {
+    getCityById(cityId ? cityId : '');
+  }, [cityId, getCityById]);
+
+  if (isLoadingCities) {
+    return <Spinner />;
+  }
 
   return (
     <div className={styles.city}>
@@ -37,7 +32,7 @@ export default function City() {
 
       <div className={styles.row}>
         <h6>You went to {cityName} on</h6>
-        <p>{formatDate(date)}</p>
+        <p>{date}</p>
       </div>
 
       {notes && (
@@ -58,7 +53,17 @@ export default function City() {
         </a>
       </div>
 
-      <div>{/* <ButtonBack /> */}</div>
+      <div>
+        <Button
+          color="back"
+          onClick={(e) => {
+            e.preventDefault();
+            navigate(-1);
+          }}
+        >
+          &larr; Back
+        </Button>
+      </div>
     </div>
   );
 }
