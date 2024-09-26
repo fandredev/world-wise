@@ -3,6 +3,7 @@ import { ICity } from '../components/City/city-list';
 
 const API_URL = 'http://localhost:8000';
 
+type OmitCityId = Omit<ICity, 'id'>;
 interface CitiesProviderProps {
   children: React.ReactNode;
 }
@@ -12,6 +13,7 @@ interface CitiesContextData {
   isLoadingCities: boolean;
   currentCity: ICity;
   getCityById: (cityId: string) => Promise<void>;
+  createCity: (newCity: OmitCityId) => Promise<void>;
 }
 
 export const CitiesContext = createContext<CitiesContextData | undefined>(
@@ -35,12 +37,30 @@ function CitiesProvider({ children }: CitiesProviderProps) {
     }
   }, []);
 
+  const createCity = async (newCity: OmitCityId) => {
+    try {
+      const response = await fetch(`${API_URL}/cities/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(newCity),
+      });
+      const data = await response.json();
+
+      setCities([...cities, data]);
+    } catch (error) {
+      console.error('Error fetching city', error);
+    } finally {
+      setIsLoadingCities(false);
+    }
+  };
+
   useEffect(() => {
     async function fetchCities() {
       try {
         const response = await fetch(`${API_URL}/cities`);
         const data = await response.json();
-        console.log(data);
 
         setCities(data);
       } catch (error) {
@@ -55,7 +75,7 @@ function CitiesProvider({ children }: CitiesProviderProps) {
 
   return (
     <CitiesContext.Provider
-      value={{ cities, isLoadingCities, currentCity, getCityById }}
+      value={{ cities, isLoadingCities, currentCity, getCityById, createCity }}
     >
       {children}
     </CitiesContext.Provider>

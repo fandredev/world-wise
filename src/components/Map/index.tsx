@@ -53,7 +53,7 @@ function Map() {
       <MapContainer
         className={styles.map}
         center={[lat, lng]}
-        zoom={6}
+        zoom={8}
         scrollWheelZoom
       >
         <TileLayer
@@ -84,7 +84,7 @@ function Map() {
 function ChangeCenter({ position }: { position: LatLngTuple }) {
   const map = useMap();
 
-  map.setView(position, 6);
+  map.setView(position, 8);
 
   return null;
 }

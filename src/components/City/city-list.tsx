@@ -8,7 +8,7 @@ export interface ICity {
   cityName: string;
   country: string;
   emoji: string;
-  date: string;
+  date: string | Date;
   notes: string;
   position: {
     lat: number;

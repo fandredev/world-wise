@@ -19,6 +19,7 @@
 - [JSON Server](https://www.npmjs.com/package/json-server)
 - [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
 - [leaflet](https://leafletjs.com/)
+- [React Date Picker](https://www.npmjs.com/package/react-datepicker)
 
 ## Clone this repo
 
@@ -76,4 +77,3 @@ git clone git@github.com:fandredev/world-wise.git
 
 E-mail: profissionalf.andre@gmail.com<br>
 Linkedin: https://www.linkedin.com/in/devfandre/<br>
-# world-wise
