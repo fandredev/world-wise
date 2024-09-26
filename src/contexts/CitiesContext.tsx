@@ -14,6 +14,7 @@ interface CitiesContextData {
   currentCity: ICity;
   getCityById: (cityId: string) => Promise<void>;
   createCity: (newCity: OmitCityId) => Promise<void>;
+  deleteCity: (cityId: number) => Promise<void>;
 }
 
 export const CitiesContext = createContext<CitiesContextData | undefined>(
@@ -46,11 +47,25 @@ function CitiesProvider({ children }: CitiesProviderProps) {
         },
         body: JSON.stringify(newCity),
       });
-      const data = await response.json();
 
+      const data = await response.json();
       setCities([...cities, data]);
     } catch (error) {
-      console.error('Error fetching city', error);
+      console.error('Error creating city', error);
+    } finally {
+      setIsLoadingCities(false);
+    }
+  };
+
+  const deleteCity = async (cityId: number) => {
+    try {
+      setIsLoadingCities(true);
+      await fetch(`${API_URL}/cities/${cityId}`, {
+        method: 'DELETE',
+      });
+      setCities(cities.filter((city) => city.id !== cityId));
+    } catch (error) {
+      console.error('Error deleting city', error);
     } finally {
       setIsLoadingCities(false);
     }
@@ -75,7 +90,14 @@ function CitiesProvider({ children }: CitiesProviderProps) {
 
   return (
     <CitiesContext.Provider
-      value={{ cities, isLoadingCities, currentCity, getCityById, createCity }}
+      value={{
+        cities,
+        isLoadingCities,
+        currentCity,
+        getCityById,
+        createCity,
+        deleteCity,
+      }}
     >
       {children}
     </CitiesContext.Provider>
