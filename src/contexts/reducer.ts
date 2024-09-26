@@ -35,10 +35,10 @@ export function reducerCities(state: CityState, action: CityAction) {
       return { ...state, currentCity: action.payload, isLoadingCities: false };
 
     case 'cities/created':
-      return { ...state, cities: [...state.cities, action.payload], isLoadingCities: false };
+      return { ...state, cities: [...state.cities, action.payload], currentCity: action.payload, isLoadingCities: false };
 
     case 'cities/deleted':
-      return { ...state, cities: state.cities.filter(city => city.id !== action.payload), isLoadingCities: false };
+      return { ...state, cities: state.cities.filter(city => city.id !== action.payload), currentCity: null, isLoadingCities: false };
 
     case 'rejected':
       return { ...state, error: action.payload, isLoadingCities: false };

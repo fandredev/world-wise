@@ -13,6 +13,7 @@ interface CitiesContextData {
   cities: ICity[];
   isLoadingCities: boolean;
   currentCity: ICity | null;
+  error: string | null;
   getCityById: (cityId: string) => Promise<void>;
   createCity: (newCity: OmitCityId) => Promise<void>;
   deleteCity: (cityId: number) => Promise<void>;
@@ -23,12 +24,12 @@ export const CitiesContext = createContext<CitiesContextData | undefined>(
 );
 
 function CitiesProvider({ children }: CitiesProviderProps) {
-  const [{ cities, isLoadingCities, currentCity }, dispatch] = useReducer(
-    reducerCities,
-    INITIAL_STATE
-  );
+  const [{ cities, isLoadingCities, currentCity, error }, dispatch] =
+    useReducer(reducerCities, INITIAL_STATE);
 
   const getCityById = useCallback(async (cityId: string) => {
+    if (Number(cityId) === currentCity?.id) return;
+
     dispatch({ type: 'loading' });
 
     try {
@@ -111,6 +112,7 @@ function CitiesProvider({ children }: CitiesProviderProps) {
         cities,
         isLoadingCities,
         currentCity,
+        error,
         getCityById,
         createCity,
         deleteCity,
