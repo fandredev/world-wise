@@ -11,8 +11,6 @@ export default function City() {
 
   const { getCityById, currentCity, isLoadingCities } = useCities();
 
-  const { cityName, emoji, date, notes } = currentCity;
-
   useEffect(() => {
     getCityById(cityId ? cityId : '');
   }, [cityId, getCityById]);
@@ -26,30 +24,30 @@ export default function City() {
       <div className={styles.row}>
         <h6>City name</h6>
         <h3>
-          <span>{emoji}</span> {cityName}
+          <span>{currentCity?.emoji}</span> {currentCity?.cityName}
         </h3>
       </div>
 
       <div className={styles.row}>
-        <h6>You went to {cityName} on</h6>
-        <p>{date}</p>
+        <h6>You went to {currentCity?.cityName} on</h6>
+        <p>{currentCity?.date.toString()}</p>
       </div>
 
-      {notes && (
+      {currentCity?.notes && (
         <div className={styles.row}>
           <h6>Your notes</h6>
-          <p>{notes}</p>
+          <p>{currentCity?.notes}</p>
         </div>
       )}
 
       <div className={styles.row}>
         <h6>Learn more</h6>
         <a
-          href={`https://en.wikipedia.org/wiki/${cityName}`}
+          href={`https://en.wikipedia.org/wiki/${currentCity?.cityName}`}
           target="_blank"
           rel="noreferrer"
         >
-          Check out {cityName} on Wikipedia &rarr;
+          Check out {currentCity?.cityName} on Wikipedia &rarr;
         </a>
       </div>
 

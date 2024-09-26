@@ -31,7 +31,7 @@ export default function CityItem({ city }: CityItemProps) {
       <Link
         to={`${id}?lat=${lat}&lng=${lng}`}
         className={`${styles.cityItem} ${
-          currentCity.id === id ? styles['cityItem--active'] : ''
+          currentCity?.id === id ? styles['cityItem--active'] : ''
         }`}
       >
         <span className={styles.emoji}>{emoji} </span>
