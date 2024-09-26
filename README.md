@@ -2,8 +2,8 @@
 ![CI](https://github.com/fandredev/portfolio/workflows/Run%20linters/badge.svg) -->
 
 ## World Wise: :technologist:
-
-<!-- ![image](https://github.com/user-attachments/assets/7f7b882d-bb64-4431-baf8-26f42b49c5f9) -->
+![image](https://github.com/user-attachments/assets/7a44f992-051e-4017-a6c7-5fdae04c088b)
+![image](https://github.com/user-attachments/assets/2fcb020b-8d4e-40e8-b0dc-1199629cb209)
 
 # Stack used
 
