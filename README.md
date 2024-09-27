@@ -1,7 +1,5 @@
-<!-- ![CI](https://github.com/fandredev/portfolio/workflows/Run%20tests%20and%20coverage/badge.svg)
-![CI](https://github.com/fandredev/portfolio/workflows/Run%20linters/badge.svg) -->
-
 ## World Wise: :technologist:
+
 ![image](https://github.com/user-attachments/assets/7a44f992-051e-4017-a6c7-5fdae04c088b)
 ![image](https://github.com/user-attachments/assets/b40d7aa6-6ebc-4a9a-b5d8-2e6613662282)
 
@@ -36,10 +34,9 @@ git clone git@github.com:fandredev/world-wise.git
  cd world-wise
 ```
 
-## Install dependencies 
+## Install dependencies
 
 ###### Notes: I use the pnpm for this project. if you use the npm, replace the 'pnpm' to 'npm'.
-
 
 ```
  pnpm install
@@ -51,27 +48,22 @@ git clone git@github.com:fandredev/world-wise.git
  pnpm run dev
 ```
 
-<!-- ## Run tests
-
-```
- yarn run test
-```
-
-## Run coverage
-
-```
- yarn run coverage
-``` -->
-
 ## Run linter
 
 ```
  pnpm run lint
 ```
+
 ## Run JSON Server
 
 ```
  pnpm run server
+```
+
+## Run Build (OPTIONAL)
+
+```
+ pnpm run build
 ```
 
 ## :mailbox_with_no_mail: Contatos
