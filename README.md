@@ -3,7 +3,8 @@
 
 ## World Wise: :technologist:
 ![image](https://github.com/user-attachments/assets/7a44f992-051e-4017-a6c7-5fdae04c088b)
-![image](https://github.com/user-attachments/assets/2fcb020b-8d4e-40e8-b0dc-1199629cb209)
+![image](https://github.com/user-attachments/assets/b40d7aa6-6ebc-4a9a-b5d8-2e6613662282)
+
 
 # Stack used
 
