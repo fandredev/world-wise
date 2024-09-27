@@ -27,24 +27,27 @@ function CitiesProvider({ children }: CitiesProviderProps) {
   const [{ cities, isLoadingCities, currentCity, error }, dispatch] =
     useReducer(reducerCities, INITIAL_STATE);
 
-  const getCityById = useCallback(async (cityId: string) => {
-    if (Number(cityId) === currentCity?.id) return;
+  const getCityById = useCallback(
+    async (cityId: string) => {
+      if (Number(cityId) === currentCity?.id) return;
 
-    dispatch({ type: 'loading' });
+      dispatch({ type: 'loading' });
 
-    try {
-      const response = await fetch(`${API_URL}/cities/${cityId}`);
-      const data = await response.json();
+      try {
+        const response = await fetch(`${API_URL}/cities/${cityId}`);
+        const data = await response.json();
 
-      dispatch({ type: 'city/loaded', payload: data as ICity });
-    } catch (error) {
-      console.error('Error fetching city', error);
-      dispatch({
-        type: 'rejected',
-        payload: 'There was an error loading the city...',
-      });
-    }
-  }, []);
+        dispatch({ type: 'city/loaded', payload: data as ICity });
+      } catch (error) {
+        console.error('Error fetching city', error);
+        dispatch({
+          type: 'rejected',
+          payload: 'There was an error loading the city...',
+        });
+      }
+    },
+    [currentCity?.id]
+  );
 
   const createCity = async (newCity: OmitCityId) => {
     dispatch({ type: 'loading' });
