@@ -25,27 +25,15 @@
       "id": "17806751"
     },
     {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": "98443197"
-    },
-    {
-      "id": "c12a",
+      "id": "8e21",
       "cityName": "Sao Paulo",
       "country": "Brazil",
-      "date": "2024-09-26T22:36:57.383Z",
-      "notes": "viagem filho",
+      "date": "2024-09-26T22:45:33.318Z",
+      "notes": "aaaa",
       "emoji": "🇧🇷",
       "position": {
-        "lat": -23.781462293795585,
-        "lng": -46.83363028145164
+        "lat": -23.74121909002144,
+        "lng": -46.71272559525793
       }
     }
   ]

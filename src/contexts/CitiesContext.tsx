@@ -1,6 +1,6 @@
 import { createContext, useCallback, useEffect, useReducer } from 'react';
 import { ICity } from '../components/City/city-list';
-import { INITIAL_STATE, reducerCities } from './reducer';
+import { INITIAL_STATE, reducerCities } from '../store/cities-reducer';
 
 const API_URL = 'http://localhost:8000';
 
