@@ -1,14 +1,34 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './styles/login.module.css';
 import NavigationPage from '../components/NavigationPage';
-
-const FAKE_EMAIL = 'jack@example.com';
-const FAKE_PASSWORD = 'qwerty';
+import { FAKE_USER } from '../utils/auth-user';
+import { useAuth } from '../hooks/use-auth';
+import { useNavigate } from 'react-router-dom';
+import Button from '../components/Button';
 
 export default function Login() {
-  // PRE-FILL FOR DEV PURPOSES
-  const [email, setEmail] = useState(FAKE_EMAIL);
-  const [password, setPassword] = useState(FAKE_PASSWORD);
+  const [email, setEmail] = useState(FAKE_USER.email);
+  const [password, setPassword] = useState(FAKE_USER.password);
+
+  const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
+  function handleLogin(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+
+    if (!email || !password) {
+      return;
+    }
+    login(email, password);
+  }
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/app', {
+        replace: true,
+      });
+    }
+  }, [isAuthenticated, navigate]);
 
   return (
     <main className={styles.login}>
@@ -35,7 +55,9 @@ export default function Login() {
         </div>
 
         <div>
-          <button>Login</button>
+          <Button color="primary" onClick={handleLogin}>
+            Login
+          </Button>
         </div>
       </form>
     </main>
