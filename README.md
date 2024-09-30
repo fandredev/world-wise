@@ -3,7 +3,6 @@
 ![image](https://github.com/user-attachments/assets/7a44f992-051e-4017-a6c7-5fdae04c088b)
 ![image](https://github.com/user-attachments/assets/b40d7aa6-6ebc-4a9a-b5d8-2e6613662282)
 
-
 # Stack used
 
 <img src="https://skillicons.dev/icons?i=typescript,react,pnpm,git,vite,css,vercel&theme=dark" alt="typescript,react,pnpm,git,vite,css,vercel" />
@@ -48,16 +47,16 @@ git clone git@github.com:fandredev/world-wise.git
  pnpm run dev
 ```
 
-## Run linter
-
-```
- pnpm run lint
-```
-
 ## Run JSON Server
 
 ```
  pnpm run server
+```
+
+## Run linter
+
+```
+ pnpm run lint
 ```
 
 ## Run Build (OPTIONAL)
